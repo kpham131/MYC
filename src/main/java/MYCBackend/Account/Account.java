@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table (name = "Accounts")
 public class Account {
 
     @Id
