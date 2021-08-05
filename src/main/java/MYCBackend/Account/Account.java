@@ -3,12 +3,14 @@ package MYCBackend.Account;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Account {
-    private String AccountID, Username, Role, Email, FullName, Address, PhoneNumber, Token;
-    private String Password;
-    private boolean IsActive;
-    private Date DoB;
+    private UUID accountID;
+    private String username, role, email, fullName, address, phoneNumber, token;
+    private String password;
+    private boolean isActive;
+    private Date doB;
     private final transient Map<Integer, String> roleTable= new HashMap<>();
 
     {
@@ -16,126 +18,127 @@ public class Account {
         roleTable.put(2, "admin");
     }
 
-    public Account(String accountID, String username, String role, String email, String fullName, String address, String phoneNumber, String token, boolean isActive, Date doB) {
-        AccountID = accountID;
-        Username = username;
-        Role = role;
-        Email = email;
-        FullName = fullName;
-        Address = address;
-        PhoneNumber = phoneNumber;
-        Token = token;
-        IsActive = isActive;
-        DoB = doB;
+    public Account(UUID accountID, String username, String role, String email, String fullName, String address, String phoneNumber, String token, String password, boolean isActive, Date doB) {
+        this.accountID = accountID;
+        this.username = username;
+        this.role = role;
+        this.email = email;
+        this.fullName = fullName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.token = token;
+        this.password = password;
+        this.isActive = isActive;
+        this.doB = doB;
     }
 
     public Account() {
     }
 
-    public String getAccountID() {
-        return AccountID;
+    public UUID getAccountID() {
+        return accountID;
     }
 
-    public void setAccountID(String accountID) {
-        AccountID = accountID;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
+    public void setAccountID(UUID accountID) {
+        this.accountID = accountID;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getFullName() {
-        return FullName;
+        return fullName;
     }
 
     public void setFullName(String fullName) {
-        FullName = fullName;
+        this.fullName = fullName;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getToken() {
-        return Token;
+        return token;
     }
 
     public void setToken(String token) {
-        Token = token;
+        this.token = token;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isActive() {
-        return IsActive;
+        return isActive;
     }
 
     public void setActive(boolean active) {
-        IsActive = active;
+        isActive = active;
     }
 
     public Date getDoB() {
-        return DoB;
+        return doB;
     }
 
     public void setDoB(Date doB) {
-        DoB = doB;
+        this.doB = doB;
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "AccountID='" + AccountID + '\'' +
-                ", Username='" + Username + '\'' +
-                ", Role='" + Role + '\'' +
-                ", Email='" + Email + '\'' +
-                ", FullName='" + FullName + '\'' +
-                ", Address='" + Address + '\'' +
-                ", PhoneNumber='" + PhoneNumber + '\'' +
-                ", Token='" + Token + '\'' +
-                ", IsActive=" + IsActive +
-                ", DoB=" + DoB +
+                "accountID=" + accountID +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", token='" + token + '\'' +
+                ", password='" + password + '\'' +
+                ", isActive=" + isActive +
+                ", doB=" + doB +
                 '}';
     }
-
     public void addRole(int roleID, String roleName) {
         roleTable.put(roleID, roleName);
     }
@@ -152,13 +155,4 @@ public class Account {
         return 0;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        Account o = (Account) obj;
-        return this.AccountID.equals(o.AccountID) && this.IsActive == o.IsActive && this.Address.equals(o.Address)
-                && this.Email.equals(o.Email) && this.FullName.equals(o.FullName) && this.Username.equals(o.Username)
-                && this.Password.equals(o.Password) && (this.DoB.compareTo(o.DoB)) == 0
-                && this.PhoneNumber.equals(o.PhoneNumber) && this.Role.equals(o.Role);
-    }
 }
