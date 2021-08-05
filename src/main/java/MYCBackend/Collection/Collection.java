@@ -1,5 +1,6 @@
 package MYCBackend.Collection;
 
+<<<<<<< HEAD
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -86,4 +87,12 @@ public class Collection {
                 ", releaseDate=" + releaseDate +
                 '}';
     }
+=======
+
+import java.util.UUID;
+
+public class Collection {
+
+
+>>>>>>> 73800ce (add dtos)
 }
