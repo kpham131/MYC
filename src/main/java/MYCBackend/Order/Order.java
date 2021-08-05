@@ -20,7 +20,7 @@ public class Order {
     @Column(name = "ReceiverName")
     private String receiverName;
 
-    @Column(name = "ReceiverName")
+    @Column(name = "ReceiverPhone")
     private String receiverPhone;
 
     @Column(name = "ReceiverAddress")
@@ -41,8 +41,8 @@ public class Order {
     @Column(name = "Total")
     private double total;
 
-    @OneToMany
-    private ArrayList<OrderItem> orderItems;
+//    @OneToMany
+//    private ArrayList<OrderItem> orderItems;
 
     public Order(UUID orderID, UUID customerID, String receiverName, String receiverPhone, String receiverAddress, String note, int statusID, Date orderDate, Date deliveryDate, double total, ArrayList<OrderItem> orderItems) {
         this.orderID = orderID;
@@ -55,19 +55,19 @@ public class Order {
         this.orderDate = orderDate;
         this.deliveryDate = deliveryDate;
         this.total = total;
-        this.orderItems = orderItems;
+//        this.orderItems = orderItems;
     }
     
     public Order() {
     }
 
-    public ArrayList<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(ArrayList<OrderItem> orderItems) {
-        this.orderItems = orderItems;
-    }
+//    public ArrayList<OrderItem> getOrderItems() {
+//        return orderItems;
+//    }
+//
+//    public void setOrderItems(ArrayList<OrderItem> orderItems) {
+//        this.orderItems = orderItems;
+//    }
 
 
 
