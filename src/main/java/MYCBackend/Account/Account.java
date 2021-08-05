@@ -1,15 +1,50 @@
 package MYCBackend.Account;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@Entity
+@Table
 public class Account {
+
+    @Id
+    @Column(name = "AccountID")
     private UUID accountID;
-    private String username, role, email, fullName, address, phoneNumber, token;
+
+    @Column(name = "Username")
+    private String username;
+
+    @Column(name = "RoleID")
+    private int role;
+
+    @Column(name = "Email")
+    private String email;
+
+    @Column(name = "FullName")
+    private String fullName;
+
+    @Column(name = "Address")
+    private String address;
+
+    @Column(name = "PhoneNumber")
+    private String phoneNumber;
+
+    @Column(name = "Token")
+    private String token;
+
+    @Column(name = "Password")
     private String password;
+
+    @Column(name = "IsActive")
     private boolean isActive;
+
+    @Column(name = "DoB")
     private Date doB;
     private final transient Map<Integer, String> roleTable= new HashMap<>();
 
@@ -18,7 +53,7 @@ public class Account {
         roleTable.put(2, "admin");
     }
 
-    public Account(UUID accountID, String username, String role, String email, String fullName, String address, String phoneNumber, String token, String password, boolean isActive, Date doB) {
+    public Account(UUID accountID, String username, int role, String email, String fullName, String address, String phoneNumber, String token, String password, boolean isActive, Date doB) {
         this.accountID = accountID;
         this.username = username;
         this.role = role;
@@ -51,11 +86,11 @@ public class Account {
         this.username = username;
     }
 
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
 

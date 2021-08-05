@@ -1,10 +1,28 @@
 package MYCBackend.Collection;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Entity
+@Table
 public class Collection {
+    @Id
+    @Column(name = "CollectionID")
     private int collectionID;
-    private String collectionName, designer, collectionDescription;
+
+    @Column(name = "CollectionName")
+    private String collectionName;
+
+    @Column(name = "Designer")
+    private String  designer;
+
+    @Column(name = "CollectionDescription")
+    private String collectionDescription;
+
+    @Column(name = "ReleaseDate")
     private Date releaseDate;
 
     public Collection(int collectionID, String collectionName, String designer, String collectionDescription, Date releaseDate) {
