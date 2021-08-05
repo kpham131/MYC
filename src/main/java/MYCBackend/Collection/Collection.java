@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table
+@Table (name = "Collections")
 public class Collection {
     @Id
     @Column(name = "CollectionID")

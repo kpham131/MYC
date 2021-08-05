@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table (name = "OrderItems")
 public class OrderItem {
     @Id
     @Column(name = "OrderItemID")
