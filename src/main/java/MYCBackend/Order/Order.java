@@ -2,16 +2,46 @@ package MYCBackend.Order;
 
 import MYCBackend.OrderItem.OrderItem;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
+@Entity
+@Table
 public class Order {
-    private UUID orderID, customerID;
-    private String receiverName, receiverPhone, receiverAddress, note;
+    @Id
+    @Column
+    private UUID orderID;
+
+    @Column(name = "CustomerID")
+    private UUID customerID;
+
+    @Column(name = "ReceiverName")
+    private String receiverName;
+
+    @Column(name = "ReceiverName")
+    private String receiverPhone;
+
+    @Column(name = "ReceiverAddress")
+    private String receiverAddress;
+
+    @Column(name = "Note")
+    private String note;
+
+    @Column(name = "StatusID")
     private int statusID;
-    private Date orderDate, deliveryDate;
+
+    @Column(name = "OrderDate")
+    private Date orderDate;
+
+    @Column(name = "DeliveryDate")
+    private Date deliveryDate;
+
+    @Column(name = "Total")
     private double total;
+
+    @OneToMany
     private ArrayList<OrderItem> orderItems;
 
     public Order(UUID orderID, UUID customerID, String receiverName, String receiverPhone, String receiverAddress, String note, int statusID, Date orderDate, Date deliveryDate, double total, ArrayList<OrderItem> orderItems) {

@@ -1,10 +1,28 @@
 package MYCBackend.OrderItem;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
+@Entity
+@Table
 public class OrderItem {
-    private UUID orderItemID, orderID, sizeID;
+    @Id
+    @Column(name = "OrderItemID")
+    private UUID orderItemID;
+
+    @Column(name = "OrderID")
+    private UUID orderID;
+
+    @Column(name = "SizeID")
+    private UUID sizeID;
+
+    @Column(name = "Quantity")
     private int quantity;
+
+    @Column(name = "CurrentProductPrice")
     private double currentProductPrice;
 
     public OrderItem(UUID orderItemID, UUID orderID, UUID sizeID, int quantity, double currentProductPrice) {
@@ -13,6 +31,9 @@ public class OrderItem {
         this.sizeID = sizeID;
         this.quantity = quantity;
         this.currentProductPrice = currentProductPrice;
+    }
+
+    public OrderItem() {
     }
 
     public UUID getOrderItemID() {
