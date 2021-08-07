@@ -1,6 +1,5 @@
 package MYCBackend.OrderItem;
 
-<<<<<<< HEAD
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,22 +17,15 @@ public class OrderItem {
     private UUID orderID;
 
     @Column(name = "SizeID")
-    private UUID sizeID;
+    private int sizeID;
 
     @Column(name = "Quantity")
     private int quantity;
 
     @Column(name = "CurrentProductPrice")
-=======
-import java.util.UUID;
-
-public class OrderItem {
-    private UUID orderItemID, orderID, sizeID;
-    private int quantity;
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
     private double currentProductPrice;
 
-    public OrderItem(UUID orderItemID, UUID orderID, UUID sizeID, int quantity, double currentProductPrice) {
+    public OrderItem(UUID orderItemID, UUID orderID, int sizeID, int quantity, double currentProductPrice) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.sizeID = sizeID;
@@ -41,12 +33,9 @@ public class OrderItem {
         this.currentProductPrice = currentProductPrice;
     }
 
-<<<<<<< HEAD
     public OrderItem() {
     }
 
-=======
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
     public UUID getOrderItemID() {
         return orderItemID;
     }
@@ -63,11 +52,11 @@ public class OrderItem {
         this.orderID = orderID;
     }
 
-    public UUID getSizeID() {
+    public int getSizeID() {
         return sizeID;
     }
 
-    public void setSizeID(UUID sizeID) {
+    public void setSizeID(int sizeID) {
         this.sizeID = sizeID;
     }
 

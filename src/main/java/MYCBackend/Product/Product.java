@@ -1,37 +1,38 @@
 package MYCBackend.Product;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.boot.autoconfigure.web.WebProperties;
+
+import javax.annotation.processing.Generated;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name="Product")
+@Table(name="Products")
 public class Product {
     @Id
     @Column(name="ProductID")
-    private UUID productID;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int productID;
 
     @Column(name="CollectionID")
-    private UUID collectionID;
+    private int collectionID;
 
-    @Column(name="AccountID")
-    private UUID accountID;
+    @Column(name="ProductName")
+    private String productName;
 
     @Column(name="ProductDescription")
     private String productDescription;
 
-    @Column(name="price")
+    @Column(name="Price")
     private Double price;
 
     @Column(name="IsAvailable")
     private boolean isAvailable;
 
-    public Product(UUID productID, UUID collectionID, UUID accountID, String productDescription, Double price, boolean isAvailable) {
+    public Product(int productID, String productName, int collectionID, String productDescription, Double price, boolean isAvailable) {
         this.productID = productID;
         this.collectionID = collectionID;
-        this.accountID = accountID;
+        this.productName = productName;
         this.productDescription = productDescription;
         this.price = price;
         this.isAvailable = isAvailable;
@@ -40,28 +41,28 @@ public class Product {
     public Product() {
     }
 
-    public UUID getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setProductID(UUID productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 
-    public UUID getCollectionID() {
+    public int getCollectionID() {
         return collectionID;
     }
 
-    public void setCollectionID(UUID collectionID) {
+    public void setCollectionID(int collectionID) {
         this.collectionID = collectionID;
     }
 
-    public UUID getAccountID() {
-        return accountID;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setAccountID(UUID accountID) {
-        this.accountID = accountID;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getProductDescription() {
@@ -93,7 +94,7 @@ public class Product {
         return "Product{" +
                 "productID=" + productID +
                 ", collectionID=" + collectionID +
-                ", accountID=" + accountID +
+                ", productName='" + productName + '\'' +
                 ", productDescription='" + productDescription + '\'' +
                 ", price=" + price +
                 ", isAvailable=" + isAvailable +

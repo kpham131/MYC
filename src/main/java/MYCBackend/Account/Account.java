@@ -12,7 +12,6 @@ import java.util.UUID;
 @Entity
 @Table (name = "Accounts")
 public class Account {
-<<<<<<< HEAD
 
     @Id
     @Column(name = "AccountID")
@@ -46,12 +45,6 @@ public class Account {
     private boolean isActive;
 
     @Column(name = "DoB")
-=======
-    private UUID accountID;
-    private String username, role, email, fullName, address, phoneNumber, token;
-    private String password;
-    private boolean isActive;
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
     private Date doB;
     private final transient Map<Integer, String> roleTable= new HashMap<>();
 
@@ -60,11 +53,7 @@ public class Account {
         roleTable.put(2, "admin");
     }
 
-<<<<<<< HEAD
     public Account(UUID accountID, String username, int role, String email, String fullName, String address, String phoneNumber, String token, String password, boolean isActive, Date doB) {
-=======
-    public Account(UUID accountID, String username, String role, String email, String fullName, String address, String phoneNumber, String token, String password, boolean isActive, Date doB) {
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
         this.accountID = accountID;
         this.username = username;
         this.role = role;
@@ -97,19 +86,11 @@ public class Account {
         this.username = username;
     }
 
-<<<<<<< HEAD
     public int getRole() {
         return role;
     }
 
     public void setRole(int role) {
-=======
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
         this.role = role;
     }
 

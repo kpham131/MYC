@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.UUID;
+
 
 
 @Entity
@@ -12,15 +12,15 @@ import java.util.UUID;
 public class ProductImage {
     @Id
     @Column(name="ImageID")
-    private UUID imageID;
+    private int imageID;
 
     @Column(name="ProductID")
-    private UUID ProductID;
+    private int ProductID;
 
     @Column(name="ImageURL")
     private String imageURL;
 
-    public ProductImage(UUID imageID, UUID productID, String imageURL) {
+    public ProductImage(int imageID, int productID, String imageURL) {
         this.imageID = imageID;
         ProductID = productID;
         this.imageURL = imageURL;
@@ -29,19 +29,19 @@ public class ProductImage {
     public ProductImage() {
     }
 
-    public UUID getImageID() {
+    public int getImageID() {
         return imageID;
     }
 
-    public void setImageID(UUID imageID) {
+    public void setImageID(int imageID) {
         this.imageID = imageID;
     }
 
-    public UUID getProductID() {
+    public int getProductID() {
         return ProductID;
     }
 
-    public void setProductID(UUID productID) {
+    public void setProductID(int productID) {
         ProductID = productID;
     }
 

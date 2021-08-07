@@ -4,17 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.UUID;
+
 
 @Entity()
 @Table(name="Size")
 public class Size {
     @Id
     @Column(name="SizeID")
-    private UUID sizeID;
+    private int sizeID;
 
     @Column(name="ProductID")
-    private UUID productID;
+    private int productID;
 
     @Column(name="SizeName")
     private String sizeName;
@@ -22,7 +22,7 @@ public class Size {
     @Column(name="quantity")
     private int quantity;
 
-    public Size(UUID sizeID, UUID productID, String sizeName, int quantity) {
+    public Size(int sizeID, int productID, String sizeName, int quantity) {
         this.sizeID = sizeID;
         this.productID = productID;
         this.sizeName = sizeName;
@@ -30,19 +30,19 @@ public class Size {
     }
     public Size(){}
 
-    public UUID getSizeID() {
+    public int getSizeID() {
         return sizeID;
     }
 
-    public void setSizeID(UUID sizeID) {
+    public void setSizeID(int sizeID) {
         this.sizeID = sizeID;
     }
 
-    public UUID getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setProductID(UUID productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 

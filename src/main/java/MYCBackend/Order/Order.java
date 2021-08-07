@@ -2,15 +2,11 @@ package MYCBackend.Order;
 
 import MYCBackend.OrderItem.OrderItem;
 
-<<<<<<< HEAD
 import javax.persistence.*;
-=======
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-<<<<<<< HEAD
 @Entity
 @Table (name = "Orders")
 public class Order {
@@ -47,15 +43,6 @@ public class Order {
 
 //    @OneToMany
 //    private ArrayList<OrderItem> orderItems;
-=======
-public class Order {
-    private UUID orderID, customerID;
-    private String receiverName, receiverPhone, receiverAddress, note;
-    private int statusID;
-    private Date orderDate, deliveryDate;
-    private double total;
-    private ArrayList<OrderItem> orderItems;
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
 
     public Order(UUID orderID, UUID customerID, String receiverName, String receiverPhone, String receiverAddress, String note, int statusID, Date orderDate, Date deliveryDate, double total, ArrayList<OrderItem> orderItems) {
         this.orderID = orderID;
@@ -68,17 +55,12 @@ public class Order {
         this.orderDate = orderDate;
         this.deliveryDate = deliveryDate;
         this.total = total;
-<<<<<<< HEAD
 //        this.orderItems = orderItems;
-=======
-        this.orderItems = orderItems;
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
     }
-    
+
     public Order() {
     }
 
-<<<<<<< HEAD
 //    public ArrayList<OrderItem> getOrderItems() {
 //        return orderItems;
 //    }
@@ -86,15 +68,6 @@ public class Order {
 //    public void setOrderItems(ArrayList<OrderItem> orderItems) {
 //        this.orderItems = orderItems;
 //    }
-=======
-    public ArrayList<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(ArrayList<OrderItem> orderItems) {
-        this.orderItems = orderItems;
-    }
->>>>>>> 0ac01cd (dtos Account, Collection, Order, OrderItem)
 
 
 
