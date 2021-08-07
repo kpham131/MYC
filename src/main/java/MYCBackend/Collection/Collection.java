@@ -7,19 +7,19 @@ import java.util.Date;
 @Table (name = "Collections")
 public class Collection {
     @Id
-    @Column(name = "CollectionID")
+    @Column(name = "collection_id")
     private int collectionID;
 
-    @Column(name = "CollectionName")
+    @Column(name = "collection_name")
     private String collectionName;
 
-    @Column(name = "Designer")
+    @Column(name = "designer")
     private String  designer;
 
-    @Column(name = "CollectionDescription")
+    @Column(name = "collection_description")
     private String collectionDescription;
 
-    @Column(name = "ReleaseDate")
+    @Column(name = "release_date")
     private Date releaseDate;
 
     public Collection(int collectionID, String collectionName, String designer, String collectionDescription, Date releaseDate) {

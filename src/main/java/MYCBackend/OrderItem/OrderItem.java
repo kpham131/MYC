@@ -10,19 +10,19 @@ import java.util.UUID;
 @Table (name = "OrderItems")
 public class OrderItem {
     @Id
-    @Column(name = "OrderItemID")
+    @Column(name = "order_item_id")
     private UUID orderItemID;
 
-    @Column(name = "OrderID")
+    @Column(name = "order_id")
     private UUID orderID;
 
-    @Column(name = "SizeID")
+    @Column(name = "size_id")
     private int sizeID;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "CurrentProductPrice")
+    @Column(name = "current_product_price")
     private double currentProductPrice;
 
     public OrderItem(UUID orderItemID, UUID orderID, int sizeID, int quantity, double currentProductPrice) {

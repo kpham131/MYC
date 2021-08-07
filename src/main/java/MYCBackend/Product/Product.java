@@ -10,23 +10,23 @@ import java.util.UUID;
 @Table(name="Products")
 public class Product {
     @Id
-    @Column(name="ProductID")
+    @Column(name="product_id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int productID;
 
-    @Column(name="CollectionID")
+    @Column(name="collection_id")
     private int collectionID;
 
-    @Column(name="ProductName")
+    @Column(name="product_name")
     private String productName;
 
-    @Column(name="ProductDescription")
+    @Column(name="product_description")
     private String productDescription;
 
-    @Column(name="Price")
+    @Column(name="price")
     private Double price;
 
-    @Column(name="IsAvailable")
+    @Column(name="is_available")
     private boolean isAvailable;
 
     public Product(int productID, String productName, int collectionID, String productDescription, Double price, boolean isAvailable) {

@@ -14,31 +14,31 @@ public class Order {
     @Column
     private UUID orderID;
 
-    @Column(name = "CustomerID")
+    @Column(name = "customer_id")
     private UUID customerID;
 
-    @Column(name = "ReceiverName")
+    @Column(name = "receiver_name")
     private String receiverName;
 
-    @Column(name = "ReceiverPhone")
+    @Column(name = "receiver_phone")
     private String receiverPhone;
 
-    @Column(name = "ReceiverAddress")
+    @Column(name = "receiver_address")
     private String receiverAddress;
 
-    @Column(name = "Note")
+    @Column(name = "note")
     private String note;
 
-    @Column(name = "StatusID")
+    @Column(name = "status_id")
     private int statusID;
 
-    @Column(name = "OrderDate")
+    @Column(name = "order_date")
     private Date orderDate;
 
-    @Column(name = "DeliveryDate")
+    @Column(name = "delivery_date")
     private Date deliveryDate;
 
-    @Column(name = "Total")
+    @Column(name = "total")
     private double total;
 
 //    @OneToMany

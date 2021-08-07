@@ -14,37 +14,37 @@ import java.util.UUID;
 public class Account {
 
     @Id
-    @Column(name = "AccountID")
+    @Column(name = "account_id")
     private UUID accountID;
 
-    @Column(name = "Username")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "RoleID")
+    @Column(name = "role_id")
     private int role;
 
-    @Column(name = "Email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "FullName")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "Address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "PhoneNumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "Token")
+    @Column(name = "token")
     private String token;
 
-    @Column(name = "Password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "IsActive")
+    @Column(name = "is_active")
     private boolean isActive;
 
-    @Column(name = "DoB")
+    @Column(name = "dob")
     private Date doB;
     private final transient Map<Integer, String> roleTable= new HashMap<>();
 

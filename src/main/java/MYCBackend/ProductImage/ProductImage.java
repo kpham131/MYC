@@ -11,13 +11,13 @@ import javax.persistence.Table;
 @Table(name="ProductImage")
 public class ProductImage {
     @Id
-    @Column(name="ImageID")
+    @Column(name="image_id")
     private int imageID;
 
-    @Column(name="ProductID")
+    @Column(name="product_id")
     private int ProductID;
 
-    @Column(name="ImageURL")
+    @Column(name="image_url")
     private String imageURL;
 
     public ProductImage(int imageID, int productID, String imageURL) {

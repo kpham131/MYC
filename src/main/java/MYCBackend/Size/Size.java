@@ -10,13 +10,13 @@ import javax.persistence.Table;
 @Table(name="Size")
 public class Size {
     @Id
-    @Column(name="SizeID")
+    @Column(name="size_id")
     private int sizeID;
 
-    @Column(name="ProductID")
+    @Column(name="product_id")
     private int productID;
 
-    @Column(name="SizeName")
+    @Column(name="size_name")
     private String sizeName;
 
     @Column(name="quantity")
