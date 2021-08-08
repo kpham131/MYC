@@ -1,6 +1,7 @@
 package MYCBackend.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,11 @@ public class ProductController {
         return service.getAllProducts();
     }
 
-    @GetMapping(path="/{id}", produces = {"application/json"})
-    public Product getProductById(@PathVariable("id") Integer id){
+    @GetMapping(path="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Product getProductById(@PathVariable("id") Integer id)
+    {
+        Product pro= service.getProductById(id);
+//        System.out.println(pro.);
         return service.getProductById(id);
     }
 

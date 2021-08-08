@@ -81,14 +81,12 @@ public class Product {
         this.price = price;
     }
 
-
-
     public boolean getIsAvailable() {
         return isAvailable;
     }
 
-    public void setIsAvailable(boolean available) {
-        isAvailable = available;
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     @Override
