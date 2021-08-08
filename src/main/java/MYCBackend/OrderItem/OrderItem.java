@@ -1,16 +1,16 @@
 package MYCBackend.OrderItem;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table (name = "OrderItems")
 public class OrderItem {
     @Id
-    @Column(name = "order_item_id")
+    @GeneratedValue()
+    @Column( name = "order_item_id", columnDefinition = "uuid" )
     private UUID orderItemID;
 
     @Column(name = "order_id")

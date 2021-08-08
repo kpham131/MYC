@@ -9,9 +9,13 @@ import java.util.List;
 
 @Service
 public class SizeService {
-    @Autowired
-    private SizeRepository repo;
 
+    private final SizeRepository repo;
+
+    @Autowired
+    public SizeService(SizeRepository repo) {
+        this.repo = repo;
+    }
 
     public List<Size> getAllSize() {
         return repo.findAll();

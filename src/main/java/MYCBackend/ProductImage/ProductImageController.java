@@ -9,7 +9,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(path = "/images")
 public class ProductImageController {
 

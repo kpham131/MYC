@@ -9,8 +9,13 @@ import java.util.List;
 @RequestMapping("/sizes")
 public class SizeController {
 
+
+    private final SizeService service;
+
     @Autowired
-    private SizeService service;
+    public SizeController(SizeService service) {
+        this.service = service;
+    }
 
     @GetMapping(path = "", produces = {"application/json"})
     public List<Size> getAllSizes(){

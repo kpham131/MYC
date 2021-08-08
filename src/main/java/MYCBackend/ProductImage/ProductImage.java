@@ -12,8 +12,8 @@ public class ProductImage {
     private int imageID;
 
 
-//    @Column(name="product_id")
-    @JoinColumn(name = "product_id")
+    @Column(name="product_id")
+//    @JoinColumn(name = "product_id")
     private int productID;
 
     @Column(name="image_url")
