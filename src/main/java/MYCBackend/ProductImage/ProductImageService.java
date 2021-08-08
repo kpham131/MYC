@@ -22,7 +22,7 @@ public class ProductImageService {
         return repository.findAll();
     }
     //--------Get product images
-    public ArrayList<ProductImage> getProductImages(int productID) {
+    public List<ProductImage> getProductImages(int productID) {
         return repository.getProductImages(productID);
     }
 

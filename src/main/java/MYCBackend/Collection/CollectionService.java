@@ -20,7 +20,7 @@ public class CollectionService {
     }
 
     public List<Collection> getAllCollections() {
-         return collectionRepository.findAll();
+         return collectionRepository.getCollections();
     }
 
     public Collection getCollectionByID(int collectionID) {

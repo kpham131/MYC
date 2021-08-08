@@ -26,7 +26,7 @@ public class ProductImageController {
     }
 
     @GetMapping(path = "/product/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ArrayList<ProductImage> getProductImages(@PathVariable ("id") int productID) {
+    public List<ProductImage> getProductImages(@PathVariable ("id") int productID) {
         System.out.println(productID);
         return imageService.getProductImages(productID);
     }
