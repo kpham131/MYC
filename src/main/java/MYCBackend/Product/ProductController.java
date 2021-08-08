@@ -32,7 +32,6 @@ public class ProductController {
 
     @PutMapping(path = "/{id}", produces = {"application/json"})
     public Product updateProduct(@PathVariable("id") int id, @RequestBody Product product){
-        System.out.println(product);
         return service.updateProduct(product);
     }
 

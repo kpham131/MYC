@@ -1,16 +1,14 @@
 package MYCBackend.Size;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity()
-@Table(name="Size")
+@Table(name="Sizes")
 public class Size {
     @Id
     @Column(name="size_id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int sizeID;
 
     @Column(name="product_id")

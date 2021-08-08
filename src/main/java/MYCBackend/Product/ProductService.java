@@ -14,9 +14,7 @@ public class ProductService {
     private ProductRepository repo;
 
     public List<Product> getAllProducts() {
-        List<Product> list = new ArrayList<>();
-        list.addAll(repo.findAll());
-        return list;
+        return repo.findAll();
     }
 
     public Product createProduct(Product product) {
@@ -37,13 +35,8 @@ public class ProductService {
 
     public Product changeProductStatus(int id) {
         Product temp = repo.findById(id).get();
-        temp.setAvailable(!temp.isAvailable());
+        temp.setIsAvailable(!temp.getIsAvailable());
         return repo.save(temp);
     }
 
-//    public static void main(String[] args) {
-//        ProductService service = new ProductService();
-//        System.out.println(service.getAllProducts());
-////        System.out.println(service.deleteProductById(8));
-//    }
 }
