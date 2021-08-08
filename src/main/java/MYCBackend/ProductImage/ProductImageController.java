@@ -1,4 +1,57 @@
 package MYCBackend.ProductImage;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+@Controller
+@RequestMapping(path = "/images")
 public class ProductImageController {
+
+    private final ProductImageService imageService;
+
+    @Autowired
+    public ProductImageController(ProductImageService imageService) {
+        this.imageService = imageService;
+    }
+
+    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductImage> getAllImages() {
+        return imageService.getAllImages();
+    }
+
+    @GetMapping(path = "/product/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ArrayList<ProductImage> getProductImages(@PathVariable ("id") int productID) {
+        System.out.println(productID);
+        return imageService.getProductImages(productID);
+    }
+
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductImage getImageByID(@PathVariable("id") int imageID) {
+        System.out.println(imageID);
+        return imageService.getImageByID(imageID);
+    }
+
+    @PostMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductImage createProductImage(@RequestBody ProductImage image) {
+        System.out.println(image);
+        return imageService.createProductImage(image);
+    }
+
+    @PutMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ProductImage updateProductImage(@PathVariable("id") int imageID, @RequestBody ProductImage image) {
+        System.out.println(imageID);
+        System.out.println(image);
+        return imageService.updateProductImage(imageID, image);
+    }
+
+    @DeleteMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteProductImage(int imageID) {
+        imageService.deleteProductImage(imageID);
+    }
 }

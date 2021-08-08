@@ -1,9 +1,12 @@
 package MYCBackend.Product;
 
+import MYCBackend.ProductImage.ProductImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -12,8 +15,12 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
+//    @Autowired
+//    private ProductService service;
+    private final ProductService service;
+
     @Autowired
-    private ProductService service;
+    public ProductController(ProductService productService) {this.service = productService;}
 
 
     @GetMapping(path = "", produces = {"application/json"})
@@ -27,6 +34,13 @@ public class ProductController {
         Product pro= service.getProductById(id);
 //        System.out.println(pro.);
         return service.getProductById(id);
+    }
+
+    //---------GetProduct By collection id
+    @GetMapping(path = "/collection/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Product> getProductByCollectionID(@PathVariable("id") int collectionId) {
+        System.out.println(collectionId);
+        return service.getProductsByCollectionID(collectionId);
     }
 
     @PostMapping(path = "", produces = {"application/json"})

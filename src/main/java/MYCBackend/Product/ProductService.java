@@ -4,14 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.persistence.StoredProcedureQuery;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Service
 public class ProductService {
+
+    //----Sua cho nay moi dung voi clip
+    private final ProductRepository repo;
+
     @Autowired
-    private ProductRepository repo;
+    public ProductService(ProductRepository repo) {
+        this.repo = repo;
+    }
 
     public List<Product> getAllProducts() {
         return repo.findAll();
@@ -38,5 +45,10 @@ public class ProductService {
         temp.setIsAvailable(!temp.getIsAvailable());
         return repo.save(temp);
     }
+    //-----Get product by collectionid
+    public List<Product> getProductsByCollectionID(int collectionID) {
+        System.out.println(collectionID);
+        return repo.getProductsByCollectionID(collectionID);
 
+    }
 }

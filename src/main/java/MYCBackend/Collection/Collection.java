@@ -8,6 +8,7 @@ import java.util.Date;
 public class Collection {
     @Id
     @Column(name = "collection_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int collectionID;
 
     @Column(name = "collection_name")

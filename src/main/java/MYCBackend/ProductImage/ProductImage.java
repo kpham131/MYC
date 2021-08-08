@@ -1,28 +1,27 @@
 package MYCBackend.ProductImage;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.persistence.*;
 
 
 @Entity
-@Table(name="ProductImage")
+@Table(name="ProductImages")
 public class ProductImage {
     @Id
     @Column(name="image_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int imageID;
 
-    @Column(name="product_id")
-    private int ProductID;
+
+//    @Column(name="product_id")
+    @JoinColumn(name = "product_id")
+    private int productID;
 
     @Column(name="image_url")
     private String imageURL;
 
     public ProductImage(int imageID, int productID, String imageURL) {
         this.imageID = imageID;
-        ProductID = productID;
+        this.productID = productID;
         this.imageURL = imageURL;
     }
 
@@ -38,11 +37,11 @@ public class ProductImage {
     }
 
     public int getProductID() {
-        return ProductID;
+        return productID;
     }
 
     public void setProductID(int productID) {
-        ProductID = productID;
+        this.productID = productID;
     }
 
     public String getImageURL() {
@@ -57,7 +56,7 @@ public class ProductImage {
     public String toString() {
         return "ProductImage{" +
                 "imageID=" + imageID +
-                ", ProductID=" + ProductID +
+                ", ProductID=" + productID +
                 ", imageURL='" + imageURL + '\'' +
                 '}';
     }
