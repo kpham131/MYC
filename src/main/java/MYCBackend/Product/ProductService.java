@@ -48,7 +48,7 @@ public class ProductService {
     //-----Get product by collectionid
     public List<Product> getProductsByCollectionID(int collectionID) {
         System.out.println(collectionID);
-        return repo.getProductsByCollectionID(collectionID);
+        return repo.findByCollectionID(collectionID);
 
     }
 }

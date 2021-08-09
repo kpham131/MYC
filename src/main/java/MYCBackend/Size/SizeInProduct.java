@@ -4,12 +4,12 @@ import javax.persistence.*;
 
 
 @Entity()
-@Table(name="Sizes")
-public class Size {
+@Table(name="SizeInProduct")
+public class SizeInProduct {
     @Id
-    @Column(name="size_id")
+    @Column(name="size_in_product_id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int sizeID;
+    private int sizeInProductID;
 
     @Column(name="product_id")
     private int productID;
@@ -20,20 +20,20 @@ public class Size {
     @Column(name="quantity")
     private int quantity;
 
-    public Size(int sizeID, int productID, String sizeName, int quantity) {
-        this.sizeID = sizeID;
+    public SizeInProduct(int sizeInProductID, int productID, String sizeName, int quantity) {
+        this.sizeInProductID = sizeInProductID;
         this.productID = productID;
         this.sizeName = sizeName;
         this.quantity = quantity;
     }
-    public Size(){}
+    public SizeInProduct(){}
 
-    public int getSizeID() {
-        return sizeID;
+    public int getSizeInProductID() {
+        return sizeInProductID;
     }
 
-    public void setSizeID(int sizeID) {
-        this.sizeID = sizeID;
+    public void setSizeInProductID(int sizeInProductID) {
+        this.sizeInProductID = sizeInProductID;
     }
 
     public int getProductID() {
@@ -62,8 +62,8 @@ public class Size {
 
     @Override
     public String toString() {
-        return "Size{" +
-                "sizeID=" + sizeID +
+        return "SizeInProduct{" +
+                "sizeInProductID=" + sizeInProductID +
                 ", productID=" + productID +
                 ", sizeName='" + sizeName + '\'' +
                 ", quantity=" + quantity +

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-    @Query("SELECT p FROM Product p WHERE p.collectionID = ?1")
+//    @Query("SELECT p FROM Product p WHERE p.collectionID = ?1")
 //    @Procedure(procedureName = "usp_Products_getByCollectionID")
-    ArrayList<Product> getProductsByCollectionID(int CollectionID);
+    ArrayList<Product> findByCollectionID(int CollectionID);
 }
