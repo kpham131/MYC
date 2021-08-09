@@ -27,6 +27,8 @@ public class OrderItemService {
         });
     }
 
+    public List<OrderItem> getAllOrderItemsByOrderID(UUID orderID) {return repo.findAllByOrderID(orderID);}
+
     public OrderItem createOrderItem(OrderItem orderItem) {
         repo.findByOrderIDAndSizeInProductID(orderItem.getOrderID(), orderItem.getSizeInProductID())
                 .ifPresent(param->{

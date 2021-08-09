@@ -1,9 +1,13 @@
 package MYCBackend.Order;
 
+import MYCBackend.OrderItem.OrderItem;
 import MYCBackend.OrderItem.OrderItemService;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,10 +15,12 @@ import java.util.UUID;
 @RequestMapping("/orders")
 public class OrderController {
     private final OrderService orderService;
+    private final OrderItemService orderItemService;
 
     @Autowired
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, OrderItemService orderItemService) {
         this.orderService = orderService;
+        this.orderItemService= orderItemService;
     }
 
     // GET ALL ORDERS
@@ -34,7 +40,29 @@ public class OrderController {
     public List<Order> getAllOrdersByCustomerId(@PathVariable("customerId") UUID customerId){
         return orderService.getAllOrdersByCustomerId(customerId);
     }
+    //GET BY STATUS
+    @GetMapping(path = "/status/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Order> getAllOrdersByStatus(@PathVariable("id") int statusID) {
+        return orderService.getOrderByStatus(statusID);
+    }
 
+    //GET BY CUSID & STATUS
+    @GetMapping(path = "/{customerID}/{statusID}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Order> getAllOrdersByCustomerIDAndStatus(@PathVariable("customerID") UUID customerID, @PathVariable(
+            "statusID") int statusID) {
+        return orderService.getOrderByCustomerIDAndStatus(customerID, statusID);
+    }
+    @GetMapping(path = "/{fromDate}/{toDate}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Order> getAllOrdersByTimeRange(@PathVariable("fromDate")Timestamp fromDate,
+                                               @PathVariable("toDate") Timestamp toDate) {
+        return orderService.getOrderByTimeRange(fromDate, toDate);
+    }
+
+    // GET ORDER ITEM
+    @GetMapping(path = "/{orderID}/items", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<OrderItem> getOrderItems(@PathVariable("orderID") UUID orderID) {
+        return orderItemService.getAllOrderItemsByOrderID(orderID);
+    }
 
     // CREATE NEW ORDER
     @PostMapping(path="", produces = "application/json")
