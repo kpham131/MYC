@@ -31,7 +31,7 @@ public class CollectionService {
     //----Khong cho ten collection giong nhau
     public Collection createCollection(Collection collection) {
         Optional<Collection> collectionByName =
-                collectionRepository.findCollectionByCollectionName(collection.getCollectionName());
+                collectionRepository.findByCollectionName(collection.getCollectionName());
         System.out.println(collectionByName);
         if (collectionByName.isPresent()) {
             throw new IllegalStateException("Collection exists");

@@ -1,5 +1,7 @@
 package MYCBackend.Collection;
 
+import MYCBackend.Product.Product;
+import MYCBackend.Product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +13,11 @@ import java.util.List;
 public class CollectionController {
 
     private final CollectionService collectionService;
-
+    private final ProductService productService;
     @Autowired
-    public CollectionController (CollectionService collectionService) {
+    public CollectionController (CollectionService collectionService, ProductService productService) {
         this.collectionService = collectionService;
+        this.productService = productService;
     }
 
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -25,6 +28,12 @@ public class CollectionController {
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection getCollectionByID(@PathVariable("id") int id) {
         return collectionService.getCollectionByID(id);
+    }
+
+    //---------GetProduct By collection id
+    @GetMapping(path = "/{id}/products")
+    public List<Product> getProductByCollectionID(@PathVariable("id") int collectionID) {
+        return productService.getProductsByCollectionID(collectionID);
     }
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE)

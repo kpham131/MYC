@@ -12,8 +12,7 @@ import java.util.UUID;
 @Repository
 public interface CollectionRepository extends JpaRepository<Collection, Integer> {
 
-    @Query("SELECT c FROM Collection c WHERE c.collectionName= ?1")
-    Optional<Collection> findCollectionByCollectionName(String name);
+    Optional<Collection> findByCollectionName(String name);
 
     //------Done with query(stored proc)
     @Query(value = "EXEC usp_Collections_getCollections;", nativeQuery = true)

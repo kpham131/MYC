@@ -36,13 +36,6 @@ public class ProductController {
         return service.getProductById(id);
     }
 
-    //---------GetProduct By collection id
-    @GetMapping(path = "/collection/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Product> getProductByCollectionID(@PathVariable("id") int collectionId) {
-        System.out.println(collectionId);
-        return service.getProductsByCollectionID(collectionId);
-    }
-
     @PostMapping(path = "", produces = {"application/json"})
     public Product createProduct(@RequestBody Product product){
         return service.createProduct(product);
