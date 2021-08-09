@@ -3,6 +3,7 @@ package MYCBackend.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
@@ -55,16 +56,10 @@ public class OrderService {
     // DELETE ORDER BY ID
     public void deleteOrderById(UUID id) {
         orderRepository.findById(id)
-                .orElseThrow(()->{
+                .orElseThrow(() -> {
                     throw new IllegalStateException("Order does not exist");
                 });
         orderRepository.deleteById(id);
-    public List<Order> getCustomerOrder(UUID customerID) {
-        return orderRepository.findAllByCustomerID(customerID);
-    }
-
-    public Order getOrderByID(UUID orderID) {
-        return orderRepository.findById(orderID).get();
     }
 
     public List<Order> getOrderByStatus(int statusID) {
@@ -75,7 +70,7 @@ public class OrderService {
         return orderRepository.findAllByCustomerIDAndStatusID(customerID, statusID);
     }
 
-    public List<Order> getOrderByTimeRange(Date fromDate, Date toDate) {
-
+    public List<Order> getOrderByTimeRange(Timestamp fromDate, Timestamp toDate) {
+        return orderRepository.getOrderByTimeRange(fromDate, toDate);
     }
 }
