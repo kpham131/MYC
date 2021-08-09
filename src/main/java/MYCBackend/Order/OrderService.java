@@ -59,5 +59,23 @@ public class OrderService {
                     throw new IllegalStateException("Order does not exist");
                 });
         orderRepository.deleteById(id);
+    public List<Order> getCustomerOrder(UUID customerID) {
+        return orderRepository.findAllByCustomerID(customerID);
+    }
+
+    public Order getOrderByID(UUID orderID) {
+        return orderRepository.findById(orderID).get();
+    }
+
+    public List<Order> getOrderByStatus(int statusID) {
+        return orderRepository.findAllByStatusID(statusID);
+    }
+
+    public List<Order> getOrderByCustomerIDAndStatus(UUID customerID, int statusID) {
+        return orderRepository.findAllByCustomerIDAndStatusID(customerID, statusID);
+    }
+
+    public List<Order> getOrderByTimeRange(Date fromDate, Date toDate) {
+
     }
 }

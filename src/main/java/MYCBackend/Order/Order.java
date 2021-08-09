@@ -46,7 +46,7 @@ public class Order {
 //    @OneToMany
 //    private ArrayList<OrderItem> orderItems;
 
-    public Order(UUID orderID, UUID customerID, String receiverName, String receiverPhone, String receiverAddress, String note, int statusID, Date orderDate, Date deliveryDate, double total, ArrayList<OrderItem> orderItems) {
+    public Order(UUID orderID, UUID customerID, String receiverName, String receiverPhone, String receiverAddress, String note, int statusID, Timestamp orderDate, Timestamp deliveryDate, double total, ArrayList<OrderItem> orderItems) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.receiverName = receiverName;
@@ -133,7 +133,7 @@ public class Order {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(Timestamp orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -141,7 +141,7 @@ public class Order {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(Date deliveryDate) {
+    public void setDeliveryDate(Timestamp deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 
