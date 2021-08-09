@@ -50,8 +50,8 @@ public class ProductImageController {
         return imageService.updateProductImage(imageID, image);
     }
 
-    @DeleteMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteProductImage(int imageID) {
+    @DeleteMapping(path = "/{imageID}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteProductImage(@PathVariable("imageID") int imageID) {
         imageService.deleteProductImage(imageID);
     }
 }

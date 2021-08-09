@@ -21,10 +21,7 @@ public class SizeInProductService {
 
     public SizeInProduct getSizeInProductById(int id) {
         // Throw exception if size does not exist
-        return repo.findById(id)
-                .orElseThrow( () -> {
-                    throw new IllegalStateException("SizeInProduct doest not exist");
-                });
+        return repo.findById(id).get();
     }
 
     public SizeInProduct createSizeInProduct(SizeInProduct sizeInProduct) {
@@ -38,25 +35,23 @@ public class SizeInProductService {
 
     public SizeInProduct updateSizeInProduct(int id, SizeInProduct sizeInProduct) {
         // Throw exception if sizeInProduct does not exist
-        repo.findById(id)
-                .orElseThrow( () -> {
-                    throw new IllegalStateException("SizeInProduct doest not exist");
-                });
+        if(!repo.existsById(id)){
+            throw new IllegalStateException("SizeInProduct doest not exist");
+        }
         return repo.save(sizeInProduct);
     }
 
     public void deleteSizeInProduct(int id) {
         // Throw exception if size does not exist
-        repo.findById(id)
-                .orElseThrow( () -> {
-                    throw new IllegalStateException("SizeInProduct doest not exist");
-                });
+        if(!repo.existsById(id)){
+            throw new IllegalStateException("SizeInProduct doest not exist");
+        }
         repo.deleteById(id);
     }
 
-    public SizeInProduct updateQuantity(int sizeInProductId, int newQuantity) {
+    public SizeInProduct updateQuantity(int id, int newQuantity) {
         // Throw exception if size does not exist
-        SizeInProduct temp = repo.findById(sizeInProductId)
+        SizeInProduct temp = repo.findById(id)
                 .orElseThrow( () -> {
                     throw new IllegalStateException("SizeInProduct doest not exist");
                 });

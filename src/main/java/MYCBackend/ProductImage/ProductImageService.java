@@ -27,14 +27,15 @@ public class ProductImageService {
     }
 
     //-------Get  image by ID
-    public ProductImage getImageByID(int imageID) {return repository.findById(imageID).get();}
+    public ProductImage getImageByID(int imageID) {
+        return repository.findById(imageID).get();
+    }
 
     //------Add product images
     public ProductImage createProductImage(ProductImage image) {
-        Optional<ProductImage> imageByID= repository.findById(image.getImageID());
-        if (imageByID.isPresent()) {
-            throw new IllegalStateException("Image exists");
-        }
+//        if(repository.existsById(image.getImageID())){
+//            throw new IllegalStateException("Image exists");
+//        }
         return repository.save(image);
     }
 
@@ -46,6 +47,9 @@ public class ProductImageService {
                 .orElseThrow(() -> new IllegalStateException(
                         "image with id: " + imageID +" does not exist!"
                 ));
+        if(!repository.existsById(imageID)){
+            throw new IllegalStateException("Image with "+ imageID+" does not exist");
+        }
         return repository.save(image);
     }
 
