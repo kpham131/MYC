@@ -35,7 +35,7 @@ public class OrderItemController {
 
     @PutMapping(path = "/{id}", produces = "application/json")
     public OrderItem updateOrderItem(@PathVariable("id") UUID id, @RequestBody OrderItem orderItem){
-        return service.updateOrderItem(orderItem);
+        return service.updateOrderItem(id, orderItem);
     }
 
     @DeleteMapping(path = "/{id}", produces = "application/json")

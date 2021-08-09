@@ -43,7 +43,7 @@ public class ProductController {
 
     @PutMapping(path = "/{id}", produces = {"application/json"})
     public Product updateProduct(@PathVariable("id") int id, @RequestBody Product product){
-        return service.updateProduct(product);
+        return service.updateProduct(id, product);
     }
 
     @DeleteMapping(path = "/{id}", produces = {"application/json"})

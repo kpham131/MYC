@@ -1,7 +1,5 @@
 package MYCBackend.OrderItem;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -16,8 +14,8 @@ public class OrderItem {
     @Column(name = "order_id")
     private UUID orderID;
 
-    @Column(name = "size_id")
-    private int sizeID;
+    @Column(name = "size_in_product_id")
+    private int sizeInProductID;
 
     @Column(name = "quantity")
     private int quantity;
@@ -25,10 +23,10 @@ public class OrderItem {
     @Column(name = "current_product_price")
     private double currentProductPrice;
 
-    public OrderItem(UUID orderItemID, UUID orderID, int sizeID, int quantity, double currentProductPrice) {
+    public OrderItem(UUID orderItemID, UUID orderID, int sizeInProductID, int quantity, double currentProductPrice) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
-        this.sizeID = sizeID;
+        this.sizeInProductID = sizeInProductID;
         this.quantity = quantity;
         this.currentProductPrice = currentProductPrice;
     }
@@ -52,12 +50,12 @@ public class OrderItem {
         this.orderID = orderID;
     }
 
-    public int getSizeID() {
-        return sizeID;
+    public int getSizeInProductID() {
+        return sizeInProductID;
     }
 
-    public void setSizeID(int sizeID) {
-        this.sizeID = sizeID;
+    public void setSizeInProductID(int sizeInProductID) {
+        this.sizeInProductID = sizeInProductID;
     }
 
     public int getQuantity() {
@@ -81,7 +79,7 @@ public class OrderItem {
         return "OrderItem{" +
                 "orderItemID=" + orderItemID +
                 ", orderID=" + orderID +
-                ", sizeID=" + sizeID +
+                ", sizeInProductID=" + sizeInProductID +
                 ", quantity=" + quantity +
                 ", currentProductPrice=" + currentProductPrice +
                 '}';

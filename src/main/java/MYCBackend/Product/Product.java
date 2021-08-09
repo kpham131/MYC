@@ -1,11 +1,8 @@
 package MYCBackend.Product;
 
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.UUID;
+
 
 @Entity
 @Table(name="Products")

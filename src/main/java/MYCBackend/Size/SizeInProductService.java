@@ -20,7 +20,11 @@ public class SizeInProductService {
     }
 
     public SizeInProduct getSizeInProductById(int id) {
-        return repo.findById(id).get();
+        // Throw exception if size does not exist
+        return repo.findById(id)
+                .orElseThrow( () -> {
+                    throw new IllegalStateException("SizeInProduct doest not exist");
+                });
     }
 
     public SizeInProduct createSizeInProduct(SizeInProduct sizeInProduct) {

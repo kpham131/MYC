@@ -3,6 +3,7 @@ package MYCBackend.Order;
 import MYCBackend.OrderItem.OrderItem;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -11,7 +12,8 @@ import java.util.UUID;
 @Table (name = "Orders")
 public class Order {
     @Id
-    @Column
+    @GeneratedValue()
+    @Column( name = "order_id", columnDefinition = "uuid" )
     private UUID orderID;
 
     @Column(name = "customer_id")
@@ -33,10 +35,10 @@ public class Order {
     private int statusID;
 
     @Column(name = "order_date")
-    private Date orderDate;
+    private Timestamp orderDate;
 
     @Column(name = "delivery_date")
-    private Date deliveryDate;
+    private Timestamp deliveryDate;
 
     @Column(name = "total")
     private double total;
