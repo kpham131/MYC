@@ -33,9 +33,10 @@ public class ProductImageService {
 
     //------Add product images
     public ProductImage createProductImage(ProductImage image) {
-//        if(repository.existsById(image.getImageID())){
-//            throw new IllegalStateException("Image exists");
-//        }
+        repository.findByImageURLAndProductID(image.getImageURL(), image.getProductID())
+                .ifPresent(param->{
+                    throw new IllegalStateException("image already exist");
+                });
         return repository.save(image);
     }
 

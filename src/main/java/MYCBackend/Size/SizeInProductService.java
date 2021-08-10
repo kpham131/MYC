@@ -20,7 +20,6 @@ public class SizeInProductService {
     }
 
     public SizeInProduct getSizeInProductById(int id) {
-        // Throw exception if size does not exist
         return repo.findById(id).get();
     }
 
@@ -43,9 +42,9 @@ public class SizeInProductService {
 
     public void deleteSizeInProduct(int id) {
         // Throw exception if size does not exist
-        if(!repo.existsById(id)){
-            throw new IllegalStateException("SizeInProduct doest not exist");
-        }
+//        if(!repo.existsById(id)){
+//            throw new IllegalStateException("SizeInProduct doest not exist");
+//        }
         repo.deleteById(id);
     }
 

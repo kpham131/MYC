@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductImageRepository extends JpaRepository <ProductImage, Integer> {
@@ -17,4 +18,6 @@ public interface ProductImageRepository extends JpaRepository <ProductImage, Int
 //    @Query(" SELECT i FROM ProductImage i WHERE i.productID = ?1")
 //    @Procedure
     List<ProductImage> getProductImages(@Param("product_id") Integer ProductID);
+
+    Optional<ProductImage> findByImageURLAndProductID(String url, int productId);
 }

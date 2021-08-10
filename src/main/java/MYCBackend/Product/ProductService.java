@@ -25,14 +25,19 @@ public class ProductService {
     }
 
     public Product createProduct(Product product) {
+        repo.findByProductNameAndCollectionID(product.getProductName(), product.getCollectionID())
+            .ifPresent(param->{
+                throw new IllegalStateException("Product already exist");
+            });
         return repo.save(product);
     }
 
     public Product getProductById(int id) {
-        return repo.findById(id)
-                .orElseThrow(()-> {
-                    throw new IllegalStateException("Product does not exists");
-                });
+//        return repo.findById(id)
+//                .orElseThrow(()-> {
+//                    throw new IllegalStateException("Product does not exists");
+//                });
+        return repo.findById(id).get();
     }
 
     public Product updateProduct(int id, Product product) {
@@ -44,10 +49,10 @@ public class ProductService {
     }
 
     public void deleteProductById(int id) {
-        repo.findById(id)
-                .orElseThrow(()-> {
-                    throw new IllegalStateException("Product does not exists");
-                });
+//        repo.findById(id)
+//                .orElseThrow(()-> {
+//                    throw new IllegalStateException("Product does not exists");
+//                });
         repo.deleteById(id);
     }
 
@@ -62,7 +67,7 @@ public class ProductService {
     }
     //-----Get product by collectionid
     public List<Product> getProductsByCollectionID(int collectionID) {
-        System.out.println(collectionID);
+//        System.out.println(collectionID);
         return repo.findByCollectionID(collectionID);
     }
 }

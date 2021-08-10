@@ -53,10 +53,10 @@ public class CollectionService {
     }
 
     public void deleteCollection (int collectionID) {
-         boolean exist = collectionRepository.findById(collectionID).isPresent();
-         if (!exist) {
-             throw new IllegalStateException("Collection id: " + collectionID + "does not exist!");
-         }
+//         boolean exist = collectionRepository.findById(collectionID).isPresent();
+//         if (!exist) {
+//             throw new IllegalStateException("Collection id: " + collectionID + "does not exist!");
+//         }
          collectionRepository.deleteById(collectionID);
      }
 }

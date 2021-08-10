@@ -21,10 +21,11 @@ public class OrderItemService {
     }
 
     public OrderItem getOrderItemById(UUID id) {
-        return repo.findById(id)
-                .orElseThrow( () -> {
-            throw new IllegalStateException("OrderItem doest not exist");
-        });
+//        return repo.findById(id)
+//                .orElseThrow( () -> {
+//            throw new IllegalStateException("OrderItem doest not exist");
+//        });
+        return repo.findById(id).get();
     }
 
     public List<OrderItem> getAllOrderItemsByOrderID(UUID orderID) {return repo.findAllByOrderID(orderID);}
@@ -46,10 +47,10 @@ public class OrderItemService {
     }
 
     public void deleteOrderItemById(UUID id) {
-        repo.findById(id)
-                .orElseThrow(()->{
-                    throw new IllegalStateException("OrderItem does not exist");
-                });
+//        repo.findById(id)
+//                .orElseThrow(()->{
+//                    throw new IllegalStateException("OrderItem does not exist");
+//                });
         repo.deleteById(id);
     }
 
