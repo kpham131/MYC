@@ -47,8 +47,8 @@ public class ProductController {
     }
 
     @DeleteMapping(path = "/{id}", produces = {"application/json"})
-    public void deleteProductById(@PathVariable("id") int id){
-        service.deleteProductById(id);
+    public boolean deleteProductById(@PathVariable("id") int id){
+        return service.deleteProductById(id);
     }
 
     @PutMapping(path = "/{id}/status", produces = {"application/json"})

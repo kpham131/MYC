@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sizeinproduct")
+@RequestMapping("/sizeInProducts")
 public class SizeInProductController {
 
 
@@ -38,12 +38,12 @@ public class SizeInProductController {
     }
 
     @DeleteMapping(path = "/{id}", produces = "application/json")
-    public void deleteSizeInProduct(@PathVariable("id") int id){
-        service.deleteSizeInProduct(id);
+    public boolean deleteSizeInProduct(@PathVariable("id") int id){
+        return service.deleteSizeInProduct(id);
     }
 
-    @PutMapping(path="/{id}/update", produces = "application/json")
-    public SizeInProduct updateQuantity(@PathVariable("id") int id, @RequestHeader("newQuantity") int newQuantity){
+    @PutMapping(path="/{id}/update/{newQuantity}", produces = "application/json")
+    public SizeInProduct updateQuantity(@PathVariable("id") int id, @PathVariable("newQuantity") int newQuantity){
         return service.updateQuantity(id, newQuantity);
     }
 }

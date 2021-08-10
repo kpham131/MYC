@@ -46,12 +46,19 @@ public class OrderItemService {
         return repo.save(orderItem);
     }
 
-    public void deleteOrderItemById(UUID id) {
+    public boolean deleteOrderItemById(UUID id) {
 //        repo.findById(id)
 //                .orElseThrow(()->{
 //                    throw new IllegalStateException("OrderItem does not exist");
 //                });
-        repo.deleteById(id);
+        try{
+            repo.deleteById(id);
+        }
+        catch (Exception e){
+            return false;
+        }
+        return true;
+
     }
 
 

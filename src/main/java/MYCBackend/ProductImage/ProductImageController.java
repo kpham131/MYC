@@ -51,7 +51,7 @@ public class ProductImageController {
     }
 
     @DeleteMapping(path = "/{imageID}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteProductImage(@PathVariable("imageID") int imageID) {
-        imageService.deleteProductImage(imageID);
+    public boolean deleteProductImage(@PathVariable("imageID") int imageID) {
+        return imageService.deleteProductImage(imageID);
     }
 }

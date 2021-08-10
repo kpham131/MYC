@@ -47,6 +47,6 @@ public class CollectionController {
         return collectionService.updateCollection(collectionId, collection);
     }
     @DeleteMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteCollection(@PathVariable("id") int collectionId) { collectionService.deleteCollection(collectionId);}
+    public boolean deleteCollection(@PathVariable("id") int collectionId) { return collectionService.deleteCollection(collectionId);}
 
 }

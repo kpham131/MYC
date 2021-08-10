@@ -36,7 +36,7 @@ public class OrderController {
     }
 
     // GET ALL BY CUSTOMERID
-    @GetMapping(path = "/{customerId}", produces = "application/json")
+    @GetMapping(path = "/customer/{customerId}", produces = "application/json")
     public List<Order> getAllOrdersByCustomerId(@PathVariable("customerId") UUID customerId){
         return orderService.getAllOrdersByCustomerId(customerId);
     }
@@ -52,6 +52,8 @@ public class OrderController {
             "statusID") int statusID) {
         return orderService.getOrderByCustomerIDAndStatus(customerID, statusID);
     }
+
+    // GET BY TIME RANGE
     @GetMapping(path = "/{fromDate}/{toDate}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Order> getAllOrdersByTimeRange(@PathVariable("fromDate")Timestamp fromDate,
                                                @PathVariable("toDate") Timestamp toDate) {
@@ -60,7 +62,7 @@ public class OrderController {
 
     // GET ORDER ITEM
     @GetMapping(path = "/{orderID}/items", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<OrderItem> getOrderItems(@PathVariable("orderID") UUID orderID) {
+    public List<OrderItem> getOrderItemsByOrderID(@PathVariable("orderID") UUID orderID) {
         return orderItemService.getAllOrderItemsByOrderID(orderID);
     }
 
@@ -78,8 +80,8 @@ public class OrderController {
 
     // DELETE ORDER BY ID
     @DeleteMapping(path = "/{id}", produces = "application/json")
-    public void deleteOrderById(@PathVariable("id") UUID id){
-        orderService.deleteOrderById(id);
+    public boolean deleteOrderById(@PathVariable("id") UUID id){
+        return orderService.deleteOrderById(id);
     }
 
 

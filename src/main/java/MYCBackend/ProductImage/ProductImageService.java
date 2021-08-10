@@ -55,7 +55,14 @@ public class ProductImageService {
     }
 
     //-------Delete product image
-    public void deleteProductImage(int imageID) {repository.deleteById(imageID);}
+    public boolean  deleteProductImage(int imageID) {
+        try{
+            repository.deleteById(imageID);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
 
 
 }

@@ -52,11 +52,16 @@ public class CollectionService {
         return collectionRepository.save(collection);
     }
 
-    public void deleteCollection (int collectionID) {
+    public boolean deleteCollection (int collectionID) {
 //         boolean exist = collectionRepository.findById(collectionID).isPresent();
 //         if (!exist) {
 //             throw new IllegalStateException("Collection id: " + collectionID + "does not exist!");
 //         }
-         collectionRepository.deleteById(collectionID);
+        try{
+            collectionRepository.deleteById(collectionID);
+        }catch (Exception e){
+            return false;
+        }
+         return true;
      }
 }

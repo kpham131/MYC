@@ -48,12 +48,17 @@ public class ProductService {
         return repo.save(product);
     }
 
-    public void deleteProductById(int id) {
+    public boolean deleteProductById(int id) {
 //        repo.findById(id)
 //                .orElseThrow(()-> {
 //                    throw new IllegalStateException("Product does not exists");
 //                });
-        repo.deleteById(id);
+        try{
+            repo.deleteById(id);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
     }
 
     public Product changeProductStatus(int id) {

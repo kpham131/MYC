@@ -54,12 +54,19 @@ public class OrderService {
     }
 
     // DELETE ORDER BY ID
-    public void deleteOrderById(UUID id) {
-        orderRepository.findById(id)
-                .orElseThrow(() -> {
-                    throw new IllegalStateException("Order does not exist");
-                });
-        orderRepository.deleteById(id);
+    public boolean deleteOrderById(UUID id) {
+//        orderRepository.findById(id)
+//                .orElseThrow(() -> {
+//                    throw new IllegalStateException("Order does not exist");
+//                });
+
+        try{
+            orderRepository.deleteById(id);
+        }
+        catch (Exception e){
+            return false;
+        }
+        return true;
     }
 
     public List<Order> getOrderByStatus(int statusID) {

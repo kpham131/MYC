@@ -40,12 +40,18 @@ public class SizeInProductService {
         return repo.save(sizeInProduct);
     }
 
-    public void deleteSizeInProduct(int id) {
+    public boolean deleteSizeInProduct(int id) {
         // Throw exception if size does not exist
 //        if(!repo.existsById(id)){
 //            throw new IllegalStateException("SizeInProduct doest not exist");
 //        }
-        repo.deleteById(id);
+        try {
+            repo.deleteById(id);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+
     }
 
     public SizeInProduct updateQuantity(int id, int newQuantity) {

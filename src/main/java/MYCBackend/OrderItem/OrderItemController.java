@@ -39,9 +39,8 @@ public class OrderItemController {
     }
 
     @DeleteMapping(path = "/{id}", produces = "application/json")
-    public void deleteOrderItemById(@PathVariable("id") UUID id){
-        System.out.println(id);
-        service.deleteOrderItemById(id);
+    public boolean deleteOrderItemById(@PathVariable("id") UUID id){
+        return service.deleteOrderItemById(id);
     }
 
 
