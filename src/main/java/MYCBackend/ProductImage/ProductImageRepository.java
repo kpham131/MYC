@@ -14,10 +14,12 @@ import java.util.Optional;
 public interface ProductImageRepository extends JpaRepository <ProductImage, Integer> {
 
 
-    @Query(value = "EXEC usp_ProductImages_getProductImages :product_id", nativeQuery = true)
-//    @Query(" SELECT i FROM ProductImage i WHERE i.productID = ?1")
-//    @Procedure
-    List<ProductImage> getProductImages(@Param("product_id") Integer ProductID);
+//    @Query(value = "EXEC usp_ProductImages_getProductImages :product_id", nativeQuery = true)
+////    @Query(" SELECT i FROM ProductImage i WHERE i.productID = ?1")
+////    @Procedure
+//    List<ProductImage> getProductImages(@Param("product_id") Integer ProductID);
+
+    List<ProductImage> findByProductID(int ProductID);
 
     Optional<ProductImage> findByImageURLAndProductID(String url, int productId);
 }

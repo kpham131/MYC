@@ -28,6 +28,16 @@ public class CollectionService {
         return collectionRepository.findById(collectionID).get();
     }
 
+    // GET COLLECTION BY NAME (NOT ON FRONTEND YET)
+    public Collection getCollectionByName(String name){
+         return collectionRepository.findByCollectionName(name).get();
+    }
+
+    // CHECK IF COLLECITON EXIST BY NAME (NOT ON FRONTEND YET)
+    public boolean isExistByName(String name){
+         return collectionRepository.findByCollectionName(name).isPresent();
+    }
+
     //----Khong cho ten collection giong nhau
     public Collection createCollection(Collection collection) {
         Optional<Collection> collectionByName =

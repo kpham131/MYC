@@ -18,4 +18,6 @@ public interface CollectionRepository extends JpaRepository<Collection, Integer>
     @Query(value = "EXEC usp_Collections_getCollections;", nativeQuery = true)
 //    @Procedure (name = "usp_Collections_getCollections")
     List<Collection> getCollections();
+
+
 }

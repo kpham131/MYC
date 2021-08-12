@@ -22,8 +22,8 @@ public class ProductImageService {
         return repository.findAll();
     }
     //--------Get product images
-    public List<ProductImage> getProductImages(int productID) {
-        return repository.getProductImages(productID);
+    public List<ProductImage> getProductImagesByProductId(int productID) {
+        return repository.findByProductID(productID);
     }
 
     //-------Get  image by ID
